@@ -449,7 +449,7 @@ def create_data_and_move(movie_path: str, zero_op: bool, no_net_op: bool, oCC):
     debug = config.getInstance().debug()
     n_number = get_number(debug, os.path.basename(movie_path))
     movie_path = os.path.abspath(movie_path)
-    print(movie_path,"os.path.abspathos.path.abspathos.path.abspath")
+    movie_path = os.path.join(movie_path)
 
     if debug is True:
         print(f"[!] [{n_number}] As Number Processing for '{movie_path}'")
@@ -624,8 +624,6 @@ def main(args: tuple) -> Path:
             folder_path = os.path.abspath(".")
 
         movie_list = movie_lists(folder_path, regexstr)
-        print(movie_list,"获取地址任务+++++++")
-
         count = 0
         count_all = str(len(movie_list))
         print('[+]Find', count_all, 'movies.')
