@@ -44,9 +44,13 @@ def moveFailedFolder(filepath):
         try:
             if os.path.exists(failed_name):
                 print('[-]File Exists while moving to FailedFolder')
-                os.remove(failed_name)
-                print('[-] Delete duplicate files ')
-                return
+                try:
+                    os.remove(failed_name)
+                    print('[-] Delete duplicate files ')
+                    return
+                except:
+                    print(failed_name,"删除失败了哦！！！！！！！！！")
+                    return
             shutil.move(filepath, failed_name)
         except:
             print('[-]File Moving to FailedFolder unsuccessful!')
