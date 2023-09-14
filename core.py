@@ -51,7 +51,8 @@ def moveFailedFolder(filepath):
                 except:
                     print(failed_name,"删除失败了哦！！！！！！！！！")
                     return
-            shutil.move(filepath, failed_name)
+            real_dst = shutil.move(filepath, failed_name)
+            print(real_dst,"哈哈哈哈")
         except:
             print('[-]File Moving to FailedFolder unsuccessful!')
 
