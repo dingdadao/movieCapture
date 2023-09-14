@@ -449,6 +449,7 @@ def create_data_and_move(movie_path: str, zero_op: bool, no_net_op: bool, oCC):
     debug = config.getInstance().debug()
     n_number = get_number(debug, os.path.basename(movie_path))
     movie_path = os.path.abspath(movie_path)
+    print(movie_path,"os.path.abspathos.path.abspathos.path.abspath")
 
     if debug is True:
         print(f"[!] [{n_number}] As Number Processing for '{movie_path}'")
@@ -641,10 +642,7 @@ def main(args: tuple) -> Path:
             print('[!] {:>30}{:>21}'.format('- ' + percentage + ' [' + str(count) + '/' + count_all + '] -',
                                             time.strftime("%H:%M:%S")))
 
-
-            print(movie_path,"movie_path======")
             movie_path = str(os.path.join(movie_path))
-            print(movie_path, "join======")
 
             create_data_and_move(movie_path, zero_op, no_net_op, oCC)
             if count >= stop_count:
