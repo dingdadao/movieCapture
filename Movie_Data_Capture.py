@@ -641,6 +641,8 @@ def main(args: tuple) -> Path:
             print('[!] {:>30}{:>21}'.format('- ' + percentage + ' [' + str(count) + '/' + count_all + '] -',
                                             time.strftime("%H:%M:%S")))
 
+
+            print(movie_path,"movie_path======")
             movie_path = os.path.join(movie_path)
 
             create_data_and_move(movie_path, zero_op, no_net_op, oCC)
