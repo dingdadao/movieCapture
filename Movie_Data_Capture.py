@@ -643,7 +643,8 @@ def main(args: tuple) -> Path:
 
 
             print(movie_path,"movie_path======")
-            movie_path = os.path.join(movie_path)
+            movie_path = str(os.path.join(movie_path))
+            print(movie_path, "join======")
 
             create_data_and_move(movie_path, zero_op, no_net_op, oCC)
             if count >= stop_count:
