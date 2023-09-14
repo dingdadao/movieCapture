@@ -41,15 +41,14 @@ def moveFailedFolder(filepath):
         with open(mtxt, 'a', encoding='utf-8') as wwibbmt:
             tmstr = datetime.now().strftime("%Y-%m-%d %H:%M")
             wwibbmt.write(f'{tmstr} FROM[{filepath}]TO[{failed_name}]\n')
-        try:
-            if os.path.exists(failed_name):
-                print('[-]File Exists while moving to FailedFolder')
-                os.remove(filepath)
-                print('[-] Delete duplicate files ')
-                return
-            shutil.move(filepath, failed_name)
-        except:
-            print('[-]File Moving to FailedFolder unsuccessful!')
+
+        if os.path.exists(failed_name):
+            print('[-]File Exists while moving to FailedFolder')
+            os.remove(filepath)
+            print('[-] Delete duplicate files ')
+            return
+        shutil.move(filepath, failed_name)
+        print('[-]File Moving to FailedFolder unsuccessful!')
 
 
 def get_info(json_data):  # 返回json里的数据
