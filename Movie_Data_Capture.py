@@ -623,6 +623,7 @@ def main(args: tuple) -> Path:
             folder_path = os.path.abspath(".")
 
         movie_list = movie_lists(folder_path, regexstr)
+        print(movie_list,"movie_listmovie_listmovie_listmovie_listmovie_list+++++++")
 
         count = 0
         count_all = str(len(movie_list))
@@ -639,6 +640,9 @@ def main(args: tuple) -> Path:
             percentage = str(count / int(count_all) * 100)[:4] + '%'
             print('[!] {:>30}{:>21}'.format('- ' + percentage + ' [' + str(count) + '/' + count_all + '] -',
                                             time.strftime("%H:%M:%S")))
+
+            movie_path = str(movie_path)
+
             create_data_and_move(movie_path, zero_op, no_net_op, oCC)
             if count >= stop_count:
                 print("[!]Stop counter triggered!")
