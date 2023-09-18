@@ -4,9 +4,9 @@ import config
 
 def remove_empty_files(fil):
     conf = config.getInstance()
-    fil.write("conf---"+str(os.path.getsize(conf)))
+    fil.write("conf---"+str(conf))
     folder_path = conf.source_folder()
-    fil.write("folder_path---" + str(os.path.getsize(conf)))
+    fil.write("folder_path---" + str(folder_path))
     for root, dirs, files in os.walk(folder_path):
 
         for file in files:
