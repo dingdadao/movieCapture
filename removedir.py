@@ -9,10 +9,10 @@ def remove_empty_files(folder_path,fil):
             if os.path.getsize(file_path) < 51200:
                 try:
                     # os.remove(file_path)
-                    fil.write(os.path.getsize(file_path))
+                    fil.write(str(file_path))
                     fil.write('/n')
                 except:
-                    fil.write(os.path.getsize(file_path))
+                    fil.write(str(file_path))
                     fil.write('/n')
 
 
