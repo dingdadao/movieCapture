@@ -10,8 +10,8 @@ def remove_empty_files(folder_path,fil):
                 file_path_str = file_path.split(".")
                 if file_path_str[-1] not in ["torrent","aria2"]:
                     try:
-                        # os.remove(file_path)
-                        fil.write(str(file_path)+'\n')
+                        os.remove(file_path)
+                        # fil.write(str(file_path)+'\n')
                     except:
                         fil.write(str(file_path)+'\n')
 
@@ -22,8 +22,8 @@ def remove_empty_files(folder_path,fil):
                 dir_path_str = dir_path.split("/")
                 if dir_path_str[-1] not in ["download","JAV_output","failed","film","tvplay"]:
                     try:
-                        # os.rmdir(dir_path_str)
-                        fil.write(str(dir_path) + '\n')
+                        os.rmdir(dir_path_str)
+                        # fil.write(str(dir_path) + '\n')
                     except:
                         fil.write(str(dir_path) + '\n')
 
