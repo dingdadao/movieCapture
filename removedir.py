@@ -8,14 +8,12 @@ def remove_empty_files(folder_path,fil):
             file_path = os.path.join(root, file)
             if os.path.getsize(file_path) < 51200:
                 file_path_str = file_path.split(".")
-                if file_path_str[:-1] not in ["torrent","aria2"]:
+                if file_path_str[-1] not in ["torrent","aria2"]:
                     try:
                         # os.remove(file_path)
-                        fil.write(str(file_path))
-                        fil.write('/n')
+                        fil.write(str(file_path)+'\n')
                     except:
-                        fil.write(str(file_path))
-                        fil.write('/n')
+                        fil.write(str(file_path)+'\n')
 
 
 
