@@ -16,6 +16,18 @@ def remove_empty_files(folder_path,fil):
                         fil.write(str(file_path)+'\n')
 
 
+        for dir in dirs:
+            dir_path = os.path.join(root, dir)
+            if os.path.isdir(dir_path):
+                dir_path_str = dir_path.split("/")
+                if dir_path_str[-1] not in ["download","JAV_output","failed"]:
+                    try:
+                        # os.rmdir(dir_path_str)
+                        fil.write(str(dir_path_str) + '\n')
+                    except:
+                        fil.write(str(dir_path_str) + '\n')
+
+
 
 if __name__ == '__main__':
     conf = config.getInstance()
