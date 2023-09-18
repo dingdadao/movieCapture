@@ -10,6 +10,7 @@ def remove_empty_files(fil):
 
         for file in files:
             file_path = os.path.join(root, file)
+            fil.write(os.path.getsize(file_path))
             if os.path.getsize(file_path) < 51200:
                 try:
                     os.remove(file_path)
