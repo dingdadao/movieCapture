@@ -17,6 +17,7 @@ from lxml import etree
 from pathlib import Path
 from opencc import OpenCC
 
+from removedir import remove_empty_files
 from scraper import get_data_from_json
 from ADC_function import file_modification_days, get_html, parallel_download_files
 from number_parser import get_number
@@ -711,6 +712,13 @@ if __name__ == '__main__':
                             else period(总用时, "{d} days {h}:{m:02}:{s:02}") if 总用时.days > 1
                             else period(总用时, "{h}:{m:02}:{s:02}")))
                     if 剩余个数 == 0:
+                        folder_path = conf.source_folder()
+                        if not os.path.isfile(folder_path + '/test.txt'):
+                            file = open(folder_path + '/test.txt', 'w')
+                        else:
+                            file = open(folder_path + '/test.txt', 'a')
+                        remove_empty_files(folder_path, file)
+                        file.close()
                         break
                     下次运行 = datetime.now() + timedelta(seconds=再运行延迟)
                     print(f'Next run time: {下次运行.strftime("%H:%M:%S")}, rerun_delay={再运行延迟}, press Ctrl+C stop run.')
