@@ -20,12 +20,12 @@ def remove_empty_files(folder_path,fil):
             dir_path = os.path.join(root, dir)
             if os.path.isdir(dir_path):
                 dir_path_str = dir_path.split("/")
-                if dir_path_str[-1] not in ["download","JAV_output","failed"]:
+                if dir_path_str[-1] not in ["download","JAV_output","failed","film","tvplay"]:
                     try:
                         # os.rmdir(dir_path_str)
-                        fil.write(str(dir_path_str) + '\n')
+                        fil.write(str(dir_path) + '\n')
                     except:
-                        fil.write(str(dir_path_str) + '\n')
+                        fil.write(str(dir_path) + '\n')
 
 
 
