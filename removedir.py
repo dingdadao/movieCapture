@@ -4,14 +4,11 @@ import config
 
 def remove_empty_files(fil):
     conf = config.getInstance()
-    fil.write("conf---"+str(conf))
     folder_path = conf.source_folder()
-    fil.write("folder_path---" + str(folder_path))
     for root, dirs, files in os.walk(folder_path):
-
         for file in files:
             file_path = os.path.join(root, file)
-            fil.write(os.path.getsize(file_path))
+            fil.write(file_path + '/n')
             if os.path.getsize(file_path) < 51200:
                 try:
                     os.remove(file_path)
