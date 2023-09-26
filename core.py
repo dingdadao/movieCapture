@@ -45,11 +45,15 @@ def moveFailedFolder(filepath):
 
         if os.path.exists(failed_name):
             print('[-]File Exists while moving to FailedFolder')
-            os.remove(filepath)
-            print('[-] Delete duplicate files ')
-            return
+            try:
+                shutil.rmtree(filepath)
+                print('[-] Delete duplicate files ')
+                return
+            except:
+                print(".........")
         shutil.move(filepath, failed_name)
         print('[-]File Moving to FailedFolder unsuccessful!')
+
 
 
 def get_info(json_data):  # 返回json里的数据
