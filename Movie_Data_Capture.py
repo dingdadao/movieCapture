@@ -649,6 +649,7 @@ def main(args: tuple) -> Path:
             if size <= 52428800:
                 try:
                     os.remove(movie_path)
+                    print("{0}文件删除了".format(movie_path))
                 except:
                     print("删除失败了{0}".format(movie_path))
 
