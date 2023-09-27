@@ -51,7 +51,8 @@ def moveFailedFolder(filepath):
             try:
                 print("filepath",filepath)
                 # print("failed_name",failed_name)
-                shutil.rmtree(filepath)
+                # shutil.rmtree(filepath)
+                os.remove(filepath)
                 print('[-] Delete duplicate files ')
                 return
             except Exception as e:
