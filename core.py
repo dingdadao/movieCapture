@@ -36,7 +36,11 @@ def moveFailedFolder(filepath):
         with open(ftxt, 'a', encoding='utf-8') as flt:
             flt.write(f'{filepath}\n')
     elif conf.failed_move() and not link_mode:
+
+
+        # 这里控制小于50m文件直接删除
         failed_name = os.path.join(failed_folder, os.path.basename(filepath))
+        print("failed_name",failed_name)
         mtxt = os.path.abspath(os.path.join(failed_folder, 'where_was_i_before_being_moved.txt'))
         print("[-]Move to Failed output folder, see %s" % mtxt)
         with open(mtxt, 'a', encoding='utf-8') as wwibbmt:
@@ -46,8 +50,8 @@ def moveFailedFolder(filepath):
         if os.path.exists(failed_name):
             print('[-]File Exists while moving to FailedFolder')
             try:
-                print(filepath)
-                print(failed_name)
+                print("filepath",filepath)
+                print("failed_name",failed_name)
                 # shutil.rmtree(filepath)
                 print('[-] Delete duplicate files ')
                 return
