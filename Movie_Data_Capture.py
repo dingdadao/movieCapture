@@ -450,7 +450,7 @@ def create_data_and_move(movie_path: str, zero_op: bool, no_net_op: bool, oCC):
     debug = config.getInstance().debug()
     n_number = get_number(debug, os.path.basename(movie_path))
     movie_path = os.path.abspath(movie_path)
-    movie_path = os.path.join(movie_path)
+    # movie_path = os.path.join(movie_path)
 
     if debug is True:
         print(f"[!] [{n_number}] As Number Processing for '{movie_path}'")
@@ -491,12 +491,9 @@ def create_data_and_move(movie_path: str, zero_op: bool, no_net_op: bool, oCC):
 def create_data_and_move_with_custom_number(file_path: str, custom_number, oCC, specified_source, specified_url):
     conf = config.getInstance()
     file_name = os.path.basename(file_path)
-    print("create_data_and_move_with_custom_number",file_name)
     try:
         print("[!] [{1}] As Number Processing for '{0}'".format(file_path, custom_number))
-
         if custom_number:
-            print(file_path,"--------------------------------")
             core_main(file_path, custom_number, oCC, specified_source, specified_url)
         else:
             print("[-] number empty ERROR")
@@ -639,7 +636,6 @@ def main(args: tuple) -> Path:
             count_all = str(min(len(movie_list), stop_count))
 
         for movie_path in movie_list:  # 遍历电影列表 交给core处理
-
             count = count + 1
             percentage = str(count / int(count_all) * 100)[:4] + '%'
             print('[!] {:>30}{:>21}'.format('- ' + percentage + ' [' + str(count) + '/' + count_all + '] -',
@@ -663,7 +659,6 @@ def main(args: tuple) -> Path:
                     break
                 sleep_seconds = random.randint(conf.sleep(), conf.sleep() + 2)
                 time.sleep(sleep_seconds)
-
 
     if conf.del_empty_folder() and not zero_op:
         rm_empty_folder(conf.success_folder())

@@ -27,7 +27,7 @@ def moveFailedFolder(filepath):
     conf = config.getInstance()
     failed_folder = conf.failed_folder()
     link_mode = conf.link_mode()
-    filepath = os.path.join(filepath)
+    # filepath = os.path.join(filepath)
     # 模式3或软连接，改为维护一个失败列表，启动扫描时加载用于排除该路径，以免反复处理
     # 原先的创建软连接到失败目录，并不直观，不方便找到失败文件位置，不如直接记录该文件路径
     if conf.main_mode() == 3 or link_mode:
