@@ -40,7 +40,6 @@ def moveFailedFolder(filepath):
 
         # 这里控制小于50m文件直接删除
         failed_name = os.path.join(failed_folder, os.path.basename(filepath))
-        print("failed_name",failed_name)
         mtxt = os.path.abspath(os.path.join(failed_folder, 'where_was_i_before_being_moved.txt'))
         print("[-]Move to Failed output folder, see %s" % mtxt)
         with open(mtxt, 'a', encoding='utf-8') as wwibbmt:
@@ -51,12 +50,12 @@ def moveFailedFolder(filepath):
             print('[-]File Exists while moving to FailedFolder')
             try:
                 print("filepath",filepath)
-                print("failed_name",failed_name)
-                # shutil.rmtree(filepath)
+                # print("failed_name",failed_name)
+                shutil.rmtree(filepath)
                 print('[-] Delete duplicate files ')
                 return
             except Exception as e:
-                print(".........".format(e))
+                print("删除重复文件报错了{0}".format(e))
         shutil.move(filepath, failed_name)
         print('[-]File Moving to FailedFolder unsuccessful!')
 

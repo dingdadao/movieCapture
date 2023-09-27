@@ -644,12 +644,21 @@ def main(args: tuple) -> Path:
 
             movie_path = str(os.path.join(movie_path))
 
+            # 判断文件大小，小于直接干掉
+            size = os.path.getsize(movie_path)
+            if size <= 52428800:
+                try:
+                    os.remove(movie_path)
+                except:
+                    print("删除失败了{0}".format(movie_path))
+
             create_data_and_move(movie_path, zero_op, no_net_op, oCC)
             if count >= stop_count:
                 print("[!]Stop counter triggered!")
                 break
             sleep_seconds = random.randint(conf.sleep(), conf.sleep() + 2)
             time.sleep(sleep_seconds)
+
 
     if conf.del_empty_folder() and not zero_op:
         rm_empty_folder(conf.success_folder())
