@@ -652,16 +652,16 @@ def main(args: tuple) -> Path:
                 try:
                     os.remove(movie_path)
                     print("{0}文件删除了".format(movie_path))
-                    break
                 except:
                     print("删除失败了{0}".format(movie_path))
 
-            create_data_and_move(movie_path, zero_op, no_net_op, oCC)
-            if count >= stop_count:
-                print("[!]Stop counter triggered!")
-                break
-            sleep_seconds = random.randint(conf.sleep(), conf.sleep() + 2)
-            time.sleep(sleep_seconds)
+            else:
+                create_data_and_move(movie_path, zero_op, no_net_op, oCC)
+                if count >= stop_count:
+                    print("[!]Stop counter triggered!")
+                    break
+                sleep_seconds = random.randint(conf.sleep(), conf.sleep() + 2)
+                time.sleep(sleep_seconds)
 
 
     if conf.del_empty_folder() and not zero_op:
