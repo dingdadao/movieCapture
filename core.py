@@ -57,8 +57,11 @@ def moveFailedFolder(filepath):
                 return
             except Exception as e:
                 print("删除重复文件报错了{0}".format(e))
-        shutil.move(filepath, failed_name)
-        print('[-]File Moving to FailedFolder unsuccessful!')
+
+        try:
+            shutil.move(filepath, failed_name)
+        except:
+            print('[-]File Moving to FailedFolder unsuccessful!',filepath,failed_name)
 
 
 
