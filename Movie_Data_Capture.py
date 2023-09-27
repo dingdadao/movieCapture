@@ -650,6 +650,7 @@ def main(args: tuple) -> Path:
                 try:
                     os.remove(movie_path)
                     print("{0}文件删除了".format(movie_path))
+                    break
                 except:
                     print("删除失败了{0}".format(movie_path))
 

@@ -49,7 +49,7 @@ def moveFailedFolder(filepath):
         if os.path.exists(failed_name):
             print('[-]File Exists while moving to FailedFolder')
             try:
-                print("filepath",filepath)
+                # print("filepath",filepath)
                 # print("failed_name",failed_name)
                 # shutil.rmtree(filepath)
                 os.remove(filepath)
