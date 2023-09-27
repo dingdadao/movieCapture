@@ -496,6 +496,7 @@ def create_data_and_move_with_custom_number(file_path: str, custom_number, oCC, 
         print("[!] [{1}] As Number Processing for '{0}'".format(file_path, custom_number))
 
         if custom_number:
+            print(file_path,"--------------------------------")
             core_main(file_path, custom_number, oCC, specified_source, specified_url)
         else:
             print("[-] number empty ERROR")
