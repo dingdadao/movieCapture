@@ -535,7 +535,7 @@ def main(args: tuple) -> Path:
         ' - ' + platform.platform() + ' \n[*] - ' + platform.machine() + ' - Python-' + platform.python_version())
 
     print('[*]================= 电影info文件处理工具 =================')
-    print('[*] 发现了视屏' + version.center(54) + "条")
+    # print('[*] 发现了视屏' + version.center(54) + "条")
     # print('[*]======================================================')
     # print('[*]' + platform_total)
     # print('[*]======================================================')
@@ -628,7 +628,7 @@ def main(args: tuple) -> Path:
         movie_list = movie_lists(folder_path, regexstr)
         count = 0
         count_all = str(len(movie_list))
-        print('[+]Find', count_all, 'movies.')
+        print('[+]查到到', count_all, '条视屏.')
         print('[*]======================================================')
         stop_count = conf.stop_counter()
         if stop_count < 1:
