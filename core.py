@@ -36,24 +36,21 @@ def moveFailedFolder(filepath):
         with open(ftxt, 'a', encoding='utf-8') as flt:
             flt.write(f'{filepath}\n')
     elif conf.failed_move() and not link_mode:
-
-
         # 这里控制小于50m文件直接删除
         failed_name = os.path.join(failed_folder, os.path.basename(filepath))
         mtxt = os.path.abspath(os.path.join(failed_folder, 'where_was_i_before_being_moved.txt'))
-        print("[-]Move to Failed output folder, see %s" % mtxt)
+        # print("[-]Move to Failed output folder, see %s" % mtxt)
         with open(mtxt, 'a', encoding='utf-8') as wwibbmt:
             tmstr = datetime.now().strftime("%Y-%m-%d %H:%M")
             wwibbmt.write(f'{tmstr} FROM[{filepath}]TO[{failed_name}]\n')
-
         if os.path.exists(failed_name):
-            print('[-]File Exists while moving to FailedFolder')
+            print('[-]移动到未识别文件夹，已经存在')
             try:
                 # print("filepath",filepath)
                 # print("failed_name",failed_name)
                 # shutil.rmtree(filepath)
                 os.remove(filepath)
-                print('[-] Delete duplicate files ')
+                print('[-] 删除掉重复文件，优化空间 ')
                 return
             except Exception as e:
                 print("删除重复文件报错了{0}".format(e))
@@ -61,7 +58,7 @@ def moveFailedFolder(filepath):
         try:
             shutil.move(filepath, failed_name)
         except:
-            print('[-]File Moving to FailedFolder unsuccessful!',filepath,failed_name)
+            print('[-]移动到未识别文件夹失败!',filepath,failed_name)
 
 
 
@@ -91,7 +88,7 @@ def small_cover_check(path, filename, cover_small, movie_path, json_headers=None
         download_file_with_filename(cover_small, filename, path, movie_path, json_headers['headers'])
     else:
         download_file_with_filename(cover_small, filename, path, movie_path)
-    print('[+]Image Downloaded! ' + full_filepath.name)
+    # print('[+]Image Downloaded! ' + full_filepath.name)
 
 
 def create_folder(json_data):  # 创建文件夹
@@ -248,7 +245,7 @@ def extrafanart_download_one_by_one(data, path, filepath, json_data=None):
                 break
         if file_not_exist_or_empty(jpg_fullpath):
             return
-        print('[+]Image Downloaded!', Path(jpg_fullpath).name)
+        # print('[+]Image Downloaded!', Path(jpg_fullpath).name)
         j += 1
     if conf.debug():
         print(f'[!]Extrafanart download one by one mode runtime {time.perf_counter() - tm_start:.3f}s')
@@ -322,7 +319,7 @@ def image_download(cover, fanart_path, thumb_path, path, filepath, json_headers=
             break
     if file_not_exist_or_empty(full_filepath):
         return
-    print('[+]Image Downloaded!', Path(full_filepath).name)
+    # print('[+]Image Downloaded!', Path(full_filepath).name)
     if not config.getInstance().jellyfin():
         shutil.copyfile(full_filepath, os.path.join(path, fanart_path))
 
@@ -485,7 +482,7 @@ def print_files(path, leak_word, c_word, naming_rule, part, cn_sub, json_data, f
                 print("  <trailer>" + trailer + "</trailer>", file=code)
             print("  <website>" + website + "</website>", file=code)
             print("</movie>", file=code)
-            print("[+]Wrote!            " + nfo_path)
+            # print("[+]Wrote!            " + nfo_path)
     except IOError as e:
         print("[-]Write Failed!")
         print("[-]", e)
@@ -526,7 +523,7 @@ def add_mark(poster_path, thumb_path, cn_sub, leak, uncensored, hack, _4k, iso) 
         return
     add_mark_thread(thumb_path, cn_sub, leak, uncensored, hack, _4k, iso)
     add_mark_thread(poster_path, cn_sub, leak, uncensored, hack, _4k, iso)
-    print('[+]Add Mark:         ' + mark_type.strip(','))
+    # print('[+]Add Mark:         ' + mark_type.strip(','))
 
 
 def add_mark_thread(pic_path, cn_sub, leak, uncensored, hack, _4k, iso):

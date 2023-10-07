@@ -467,7 +467,8 @@ def create_data_and_move(movie_path: str, zero_op: bool, no_net_op: bool, oCC):
         print("[*]======================================================")
     else:
         try:
-            print(f"[!] [{n_number}] As Number Processing for '{movie_path}'")
+            # print(f"[!] [{n_number}] As Number Processing for '{movie_path}'")
+            print(f"[!] [{n_number}] Is Number")
             if zero_op:
                 return
             if n_number:
@@ -645,10 +646,11 @@ def main(args: tuple) -> Path:
 
             # 判断文件大小，小于直接干掉
             size = os.path.getsize(movie_path)
-            if size <= 52428800:
+            if size <= 82428800:
                 try:
                     os.remove(movie_path)
-                    print("{0}文件删除了".format(movie_path))
+                    print("删除了小于80m的文件，节约空间")
+                    break
                 except:
                     print("删除失败了{0}".format(movie_path))
 
