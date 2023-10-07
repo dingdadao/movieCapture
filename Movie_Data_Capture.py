@@ -534,20 +534,20 @@ def main(args: tuple) -> Path:
     platform_total = str(
         ' - ' + platform.platform() + ' \n[*] - ' + platform.machine() + ' - Python-' + platform.python_version())
 
-    print('[*]================= Movie Data Capture =================')
-    print('[*]' + version.center(54))
-    print('[*]======================================================')
-    print('[*]' + platform_total)
-    print('[*]======================================================')
-    print('[*] - 严禁在墙内宣传本项目 - ')
-    print('[*]======================================================')
+    print('[*]================= 电影info文件处理工具 =================')
+    print('[*] 发现了视屏' + version.center(54) + "条")
+    # print('[*]======================================================')
+    # print('[*]' + platform_total)
+    # print('[*]======================================================')
+    # print('[*] - 严禁在墙内宣传本项目 - ')
+    # print('[*]======================================================')
 
     start_time = time.time()
-    print('[+]Start at', time.strftime("%Y-%m-%d %H:%M:%S"))
-
-    print(f"[+]Load Config file '{conf.ini_path}'.")
-    if conf.debug():
-        print('[+]Enable debug')
+    # print('[+]Start at', time.strftime("%Y-%m-%d %H:%M:%S"))
+    #
+    # print(f"[+]Load Config file '{conf.ini_path}'.")
+    # if conf.debug():
+    #     print('[+]Enable debug')
     if conf.link_mode() in (1, 2):
         print('[!]Enable {} link'.format(('soft', 'hard')[conf.link_mode() - 1]))
     if len(sys.argv) > 1:
@@ -560,37 +560,37 @@ def main(args: tuple) -> Path:
                     ) if not single_file_path else ('-', 'Single File', '', '', ''))
           )
 
-    if conf.update_check():
-        try:
-            check_update(version)
-            # Download Mapping Table, parallel version
-            def fmd(f) -> typing.Tuple[str, Path]:
-                return ('https://raw.githubusercontent.com/yoshiko2/Movie_Data_Capture/master/MappingTable/' + f,
-                        Path.home() / '.local' / 'share' / 'mdc' / f)
-
-            map_tab = (fmd('mapping_actor.xml'), fmd('mapping_info.xml'), fmd('c_number.json'))
-            for k, v in map_tab:
-                if v.exists():
-                    if file_modification_days(str(v)) >= conf.mapping_table_validity():
-                        print("[+]Mapping Table Out of date! Remove", str(v))
-                        os.remove(str(v))
-            res = parallel_download_files(((k, v) for k, v in map_tab if not v.exists()))
-            for i, fp in enumerate(res, start=1):
-                if fp and len(fp):
-                    print(f"[+] [{i}/{len(res)}] Mapping Table Downloaded to {fp}")
-                else:
-                    print(f"[-] [{i}/{len(res)}] Mapping Table Download failed")
-        except:
-            print("[!]" + " WARNING ".center(54, "="))
-            print('[!]' + '-- GITHUB CONNECTION FAILED --'.center(54))
-            print('[!]' + 'Failed to check for updates'.center(54))
-            print('[!]' + '& update the mapping table'.center(54))
-            print("[!]" + "".center(54, "="))
-            try:
-                etree.parse(str(Path.home() / '.local' / 'share' / 'mdc' / 'mapping_actor.xml'))
-            except:
-                print('[!]' + "Failed to load mapping table".center(54))
-                print('[!]' + "".center(54, "="))
+    # if conf.update_check():
+    #     try:
+    #         check_update(version)
+    #         # Download Mapping Table, parallel version
+    #         def fmd(f) -> typing.Tuple[str, Path]:
+    #             return ('https://raw.githubusercontent.com/yoshiko2/Movie_Data_Capture/master/MappingTable/' + f,
+    #                     Path.home() / '.local' / 'share' / 'mdc' / f)
+    #
+    #         map_tab = (fmd('mapping_actor.xml'), fmd('mapping_info.xml'), fmd('c_number.json'))
+    #         for k, v in map_tab:
+    #             if v.exists():
+    #                 if file_modification_days(str(v)) >= conf.mapping_table_validity():
+    #                     print("[+]Mapping Table Out of date! Remove", str(v))
+    #                     os.remove(str(v))
+    #         res = parallel_download_files(((k, v) for k, v in map_tab if not v.exists()))
+    #         for i, fp in enumerate(res, start=1):
+    #             if fp and len(fp):
+    #                 print(f"[+] [{i}/{len(res)}] Mapping Table Downloaded to {fp}")
+    #             else:
+    #                 print(f"[-] [{i}/{len(res)}] Mapping Table Download failed")
+    #     except:
+    #         print("[!]" + " WARNING ".center(54, "="))
+    #         print('[!]' + '-- GITHUB CONNECTION FAILED --'.center(54))
+    #         print('[!]' + 'Failed to check for updates'.center(54))
+    #         print('[!]' + '& update the mapping table'.center(54))
+    #         print("[!]" + "".center(54, "="))
+    #         try:
+    #             etree.parse(str(Path.home() / '.local' / 'share' / 'mdc' / 'mapping_actor.xml'))
+    #         except:
+    #             print('[!]' + "Failed to load mapping table".center(54))
+    #             print('[!]' + "".center(54, "="))
 
     create_failed_folder(conf.failed_folder())
 
