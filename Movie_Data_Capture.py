@@ -552,13 +552,13 @@ def main(args: tuple) -> Path:
         print('[!]Enable {} link'.format(('soft', 'hard')[conf.link_mode() - 1]))
     if len(sys.argv) > 1:
         print('[!]CmdLine:', " ".join(sys.argv[1:]))
-    print('[+]Main Working mode ## {}: {} ## {}{}{}'
-          .format(*(main_mode, ['Scraping', 'Organizing', 'Scraping in analysis folder'][main_mode - 1],
-                    "" if not conf.multi_threading() else ", multi_threading on",
-                    "" if conf.nfo_skip_days() == 0 else f", nfo_skip_days={conf.nfo_skip_days()}",
-                    "" if conf.stop_counter() == 0 else f", stop_counter={conf.stop_counter()}"
-                    ) if not single_file_path else ('-', 'Single File', '', '', ''))
-          )
+    # print('[+]Main Working mode ## {}: {} ## {}{}{}'
+    #       .format(*(main_mode, ['Scraping', 'Organizing', 'Scraping in analysis folder'][main_mode - 1],
+    #                 "" if not conf.multi_threading() else ", multi_threading on",
+    #                 "" if conf.nfo_skip_days() == 0 else f", nfo_skip_days={conf.nfo_skip_days()}",
+    #                 "" if conf.stop_counter() == 0 else f", stop_counter={conf.stop_counter()}"
+    #                 ) if not single_file_path else ('-', 'Single File', '', '', ''))
+    #       )
 
     # if conf.update_check():
     #     try:
