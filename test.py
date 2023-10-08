@@ -1,8 +1,20 @@
+import os
+
+import config
+from pathlib import Path
+
+def main():
+    print("开始了")
+    conf = config.getInstance()
+    faileds = conf.failed_folder()
+    if not isinstance(faileds, str) or faileds == '':
+        faileds = os.path.abspath(".")
+
+    source = Path(faileds).resolve()
+
+    for full_name in source.glob(r'**/*'):
+        print(full_name)
 
 
-file_path = '/synology/download/431d366742fa9c1c42eef197099b6b924ec8bf79.torrent'
 
-file_path_str = file_path.split(".")
-
-if file_path_str[-1] not in ["torrent"]:
-    print(file_path_str[-1])
+main()
