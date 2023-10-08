@@ -13,7 +13,7 @@ def main():
         sources = os.path.abspath(".")
 
     sources = Path(sources).resolve()
-    for _ in sources:
+    for _ in sources.glob(r'**/*'):
         patha = str(os.path.join(_))
         if os.path.isdir(patha):
             print(patha)
