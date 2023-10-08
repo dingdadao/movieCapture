@@ -8,7 +8,7 @@ def main():
     # conf = config.getInstance()
 
     while True:
-        faileds = input("请输入路径!")
+        faileds = input("请输入路径!: ")
         if faileds:
             break
     # faileds = conf.failed_folder()
@@ -31,7 +31,7 @@ def main():
     if delete_cont > 0:
         print(deletelist)
         print("一共发现"+str(delete_cont)+"条需要删除的数据")
-        input_yes = input("确认是否删除，输入yes")
+        input_yes = input("确认是否删除，输入yes: ")
         if input_yes != "yes":
             print("放弃了")
             return

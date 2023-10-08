@@ -18,7 +18,7 @@ def main():
         if os.path.isdir(patha):
             is_sym = _.is_symlink()
             movie_size = 0 if is_sym else _.stat().st_size
-            if movie_size <= 0:
+            if movie_size <= 204800:
                 delect_dir.append(patha)
 
 
