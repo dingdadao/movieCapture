@@ -29,14 +29,13 @@ def main():
         print("没有需要删除的数据")
         return
     print(delect_dir)
-    # for _ in delect_dir:
-    #     try:
-    #         # os.rmdir(_)
-    #         print(_)
-    #     except:
-    #         print("删除失败",_)
-    #
-    # print("删除完成")
+    for _ in delect_dir:
+        try:
+            os.removedirs(_)
+        except:
+            print("删除失败",_)
+
+    print("删除完成")
 
 
 main()
