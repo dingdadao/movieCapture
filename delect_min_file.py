@@ -24,7 +24,7 @@ def main():
 
     delete_cont = len(deletelist)
     if delete_cont > 0:
-        print("一共发现"+str()+"条需要删除的数据")
+        print("一共发现"+str(delete_cont)+"条需要删除的数据")
     else:
         print("没有需要删除的数据")
         return

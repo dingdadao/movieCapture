@@ -11,16 +11,31 @@ def main():
     # print(faileds,"faileds-----------")
     if not isinstance(sources, str) or sources == '':
         sources = os.path.abspath(".")
-
+    delect_dir = []
     sources = Path(sources).resolve()
     for _ in sources.glob(r'**/*'):
         patha = str(os.path.join(_))
         if os.path.isdir(patha):
-            print(patha)
             is_sym = _.is_symlink()
             movie_size = 0 if is_sym else _.stat().st_size
             if movie_size <= 0:
-                print(patha,"小于0")
+                delect_dir.append(patha)
+
+
+    delete_cont = len(delect_dir)
+    if delete_cont > 0:
+        print("一共发现" + str(delete_cont) + "条需要删除的数据")
+    else:
+        print("没有需要删除的数据")
+        return
+
+    for _ in delect_dir:
+        try:
+            os.rmdir(_)
+        except:
+            print("删除失败",_)
+
+    print("删除完成")
 
 
 main()
