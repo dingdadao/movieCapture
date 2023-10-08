@@ -36,7 +36,6 @@ def moveFailedFolder(filepath):
         with open(ftxt, 'a', encoding='utf-8') as flt:
             flt.write(f'{filepath}\n')
     elif conf.failed_move() and not link_mode:
-        # 这里控制小于50m文件直接删除
         failed_name = os.path.join(failed_folder, os.path.basename(filepath))
         mtxt = os.path.abspath(os.path.join(failed_folder, 'where_was_i_before_being_moved.txt'))
         # print("[-]Move to Failed output folder, see %s" % mtxt)
@@ -46,9 +45,6 @@ def moveFailedFolder(filepath):
         if os.path.exists(failed_name):
             print('[-]移动到未识别文件夹，已经存在')
             try:
-                # print("filepath",filepath)
-                # print("failed_name",failed_name)
-                # shutil.rmtree(filepath)
                 os.remove(filepath)
                 print('[-] 删除掉重复文件，优化空间 ')
                 return
