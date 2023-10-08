@@ -17,7 +17,9 @@ def main():
         patha = str(os.path.join(_))
         if os.path.isdir(patha):
             print(patha)
-            if os.stat().st_size <= 0:
+            is_sym = _.is_symlink()
+            movie_size = 0 if is_sym else _.stat().st_size
+            if movie_size <= 0:
                 print(patha,"小于0")
 
 
