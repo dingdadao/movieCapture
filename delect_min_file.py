@@ -4,9 +4,14 @@ import config
 from pathlib import Path
 
 def main():
-    print("开始了")
-    conf = config.getInstance()
-    faileds = conf.failed_folder()
+    print("开始了==========================")
+    # conf = config.getInstance()
+
+    while True:
+        faileds = input("请输入路径!")
+        if faileds:
+            break
+    # faileds = conf.failed_folder()
     # print(faileds,"faileds-----------")
     if not isinstance(faileds, str) or faileds == '':
         faileds = os.path.abspath(".")
@@ -24,7 +29,12 @@ def main():
 
     delete_cont = len(deletelist)
     if delete_cont > 0:
+        print(deletelist)
         print("一共发现"+str(delete_cont)+"条需要删除的数据")
+        input_yes = input("确认是否删除，输入yes")
+        if input_yes != "yes":
+            print("放弃了")
+            return
     else:
         print("没有需要删除的数据")
         return
