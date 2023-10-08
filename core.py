@@ -58,7 +58,7 @@ def moveFailedFolder(filepath):
         try:
             shutil.move(filepath, failed_name)
         except:
-            print('[-]移动到未识别文件夹失败!',filepath,failed_name)
+            print('[-]移动到未识别文件夹失败!',failed_name)
 
 
 
