@@ -650,7 +650,6 @@ def main(args: tuple) -> Path:
                 try:
                     os.remove(movie_path)
                     print("删除了小于80m的文件，节约空间")
-                    break
                 except:
                     print("删除失败了{0}".format(movie_path))
 
