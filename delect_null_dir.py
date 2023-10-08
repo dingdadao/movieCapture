@@ -20,3 +20,5 @@ def main():
             if os.stat().st_size <= 0:
                 print(patha,"小于0")
 
+
+main()
