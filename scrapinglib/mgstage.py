@@ -34,7 +34,7 @@ class Mgstage(Parser):
         htmltree = self.getHtmlTree(self.detailurl)
         result = self.dictformat(htmltree)
         return result
-
+    # http://www.mgstage.com/product/product_detail/
     def getTitle(self, htmltree):
         return super().getTitle(htmltree).replace('/', ',').strip()
 
