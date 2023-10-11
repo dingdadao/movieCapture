@@ -41,7 +41,7 @@ def get_number(debug: bool, file_path: str) -> str:
     # debug True 和 False 两块代码块合并，原因是此模块及函数只涉及字符串计算，没有IO操作，debug on时输出导致异常信息即可
     try:
         # 先对自定义正则进行匹配
-        if config.getInstance().number_regexs().split().__len__() > 0:
+        if config.getInstance().number_regexs():
             regex = config.getInstance().number_regexs()
             try:
                 if re.search(regex, filepath):
