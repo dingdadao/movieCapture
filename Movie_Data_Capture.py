@@ -724,10 +724,10 @@ if __name__ == '__main__':
                             else period(总用时, "{h}:{m:02}:{s:02}")))
                     if 剩余个数 == 0:
                         # folder_path = conf.source_folder()
-                        # if not os.path.isfile(folder_path + '/test.txt'):
-                        #     file = open(folder_path + '/test.txt', 'w')
+                        # if not os.path.isfile(folder_path + '/nub.txt'):
+                        #     file = open(folder_path + '/nub.txt', 'w')
                         # else:
-                        #     file = open(folder_path + '/test.txt', 'a')
+                        #     file = open(folder_path + '/nub.txt', 'a')
                         # remove_empty_files(folder_path, file)
                         # file.close()
                         break
