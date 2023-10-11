@@ -42,12 +42,12 @@ def get_number(debug: bool, file_path: str) -> str:
     try:
         # 先对自定义正则进行匹配
         if config.getInstance().number_regexs().split().__len__() > 0:
-            for regex in config.getInstance().number_regexs().split():
-                try:
-                    if re.search(regex, filepath):
-                        return re.search(regex, filepath).group()
-                except Exception as e:
-                    print(f'[-]custom regex exception: {e} [{regex}]')
+            regex = config.getInstance().number_regexs()
+            try:
+                if re.search(regex, filepath):
+                    return re.search(regex, filepath).group()
+            except Exception as e:
+                print(f'[-]custom regex exception: {e} [{regex}]')
 
         file_number = get_number_by_dict(filepath)
         if file_number:
