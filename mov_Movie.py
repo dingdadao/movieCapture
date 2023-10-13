@@ -50,17 +50,19 @@ def mov_Movie():
             else:
                 movie_list.append(str(full_name))
 
-    return check_folder,movie_list
+    return movie_list
 
 
-checkfo,movielist = mov_Movie()
+
+
+
+
 
 # print(movielist)
-semaphore = threading.Semaphore(4)
+# semaphore = threading.Semaphore(4)
 
-def move_file(source_path):
-    conf = config.getInstance()
-    check_folder = conf.check_folder()
+def move_file(source_path,check_folder):
+
     failed_name = os.path.join(check_folder, os.path.basename(source_path))
     if os.path.exists(failed_name):
         print('[-]移动到未识别文件夹，已经存在')
@@ -69,23 +71,36 @@ def move_file(source_path):
             print('[-] 删除掉重复文件，优化空间 ')
         except Exception as e:
             print("删除重复文件报错了{0}".format(e))
-    shutil.move(source_path, check_folder)
+    else:
+
+        shutil.move(source_path, check_folder)
     print(f"Moved file from {source_path} to {check_folder}")
 
-def process_file(file_path):
-    semaphore.acquire()  # 获取信号量，限制线程数量
-    move_file(file_path)
-    semaphore.release()  # 释放信号量
 
-threads = []
+if __name__ == '__main__':
+    conf = config.getInstance()
+    check_folder = conf.check_folder()
+    movielist = mov_Movie()
 
-for file_path in movielist:
-    thread = threading.Thread(target=process_file, args=(file_path,))
-    threads.append(thread)
-    thread.start()
+    for _ in movielist:
+        move_file(_,check_folder)
 
-# 等待所有线程结束
-for thread in threads:
-    thread.join()
 
-print("All threads have finished moving files")
+#
+# def process_file(file_path):
+#     semaphore.acquire()  # 获取信号量，限制线程数量
+#     move_file(file_path)
+#     semaphore.release()  # 释放信号量
+#
+# threads = []
+#
+# for file_path in movielist:
+#     thread = threading.Thread(target=process_file, args=(file_path,))
+#     threads.append(thread)
+#     thread.start()
+#
+# # 等待所有线程结束
+# for thread in threads:
+#     thread.join()
+#
+# print("All threads have finished moving files")
