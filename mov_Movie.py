@@ -48,7 +48,7 @@ def mov_Movie():
                 except Exception as e:
                     print("删除重复文件报错了{0}".format(e))
             else:
-                movie_list.append(full_name.resolve())
+                movie_list.append(full_name.group())
 
     return check_folder,movie_list
 
