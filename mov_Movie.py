@@ -54,27 +54,27 @@ def mov_Movie():
 
 checkfo,movielist = mov_Movie()
 
-
-semaphore = threading.Semaphore(4)
-
-def move_file(source_path, destination_path):
-    shutil.move(source_path, destination_path)
-    print(f"Moved file from {source_path} to {destination_path}")
-
-def process_file(file_path):
-    semaphore.acquire()  # 获取信号量，限制线程数量
-    move_file(file_path, checkfo)
-    semaphore.release()  # 释放信号量
-
-threads = []
-
-for file_path in movielist:
-    thread = threading.Thread(target=process_file, args=(file_path,))
-    threads.append(thread)
-    thread.start()
-
-# 等待所有线程结束
-for thread in threads:
-    thread.join()
-
-print("All threads have finished moving files")
+print(movielist)
+# semaphore = threading.Semaphore(4)
+#
+# def move_file(source_path, destination_path):
+#     shutil.move(source_path, destination_path)
+#     print(f"Moved file from {source_path} to {destination_path}")
+#
+# def process_file(file_path):
+#     semaphore.acquire()  # 获取信号量，限制线程数量
+#     move_file(file_path, checkfo)
+#     semaphore.release()  # 释放信号量
+#
+# threads = []
+#
+# for file_path in movielist:
+#     thread = threading.Thread(target=process_file, args=(file_path,))
+#     threads.append(thread)
+#     thread.start()
+#
+# # 等待所有线程结束
+# for thread in threads:
+#     thread.join()
+#
+# print("All threads have finished moving files")
