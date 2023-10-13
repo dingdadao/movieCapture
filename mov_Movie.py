@@ -30,15 +30,6 @@ def mov_Movie():
             continue
         else:
             print(full_name)
-
-            if os.path.exists(failed_name):
-                print('[-]移动到未识别文件夹，已经存在')
-                try:
-                    os.remove(full_name)
-                    print('[-] 删除掉重复文件，优化空间 ')
-                    continue
-                except Exception as e:
-                    print("删除重复文件报错了{0}".format(e))
             is_sym = full_name.is_symlink()
             # 调试用0字节样本允许通过，去除小于120MB的广告'苍老师强力推荐.mp4'(102.2MB)'黑道总裁.mp4'(98.4MB)'有趣的妹子激情表演.MP4'(95MB)'有趣的臺灣妹妹直播.mp4'(15.1MB)
             movie_size = 0 if is_sym else full_name.stat().st_size  # 同上 符号链接不取stat()及st_size，直接赋0跳过小视频检测
@@ -48,8 +39,17 @@ def mov_Movie():
                     print("删除了小于80m的文件，节约空间")
                 except:
                     print("删除失败了{0}".format(full_name))
+            if os.path.exists(failed_name):
+                print('[-]移动到未识别文件夹，已经存在')
+                try:
+                    os.remove(full_name)
+                    print('[-] 删除掉重复文件，优化空间 ')
+                    continue
+                except Exception as e:
+                    print("删除重复文件报错了{0}".format(e))
+            else:
+                movie_list.append(full_name)
 
-            movie_list.append(full_name)
     return check_folder,movie_list
 
 checkfo,movielist = mov_Movie()
@@ -65,14 +65,6 @@ def process_file(file_path):
     semaphore.acquire()  # 获取信号量，限制线程数量
     move_file(file_path, checkfo)
     semaphore.release()  # 释放信号量
-
-# 示例用法
-file_paths = [
-    "path/to/source/file1.txt",
-    "path/to/source/file2.txt",
-    "path/to/source/file3.txt",
-    # 添加更多文件路径
-]
 
 threads = []
 
