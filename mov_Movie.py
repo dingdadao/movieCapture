@@ -18,12 +18,14 @@ def mov_Movie():
 
     source = Path(source_folder).resolve()
     for full_name in source.glob(r'**/*'):
+        # 要移动的目的地是否有，有就删除
+        failed_name = os.path.join(check_folder, os.path.basename(full_name))
         if not full_name.suffix.lower() in file_type:
             continue
         else:
             print(full_name)
 
-            if os.path.exists(full_name):
+            if os.path.exists(failed_name):
                 print('[-]移动到未识别文件夹，已经存在')
                 try:
                     os.remove(full_name)
