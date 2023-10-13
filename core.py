@@ -45,6 +45,7 @@ def moveFailedFolder(filepath):
         if os.path.exists(failed_name):
             print('[-]移动到未识别文件夹，已经存在')
             try:
+                print(filepath,"=========")
                 os.remove(filepath)
                 print('[-] 删除掉重复文件，优化空间 ')
                 return
