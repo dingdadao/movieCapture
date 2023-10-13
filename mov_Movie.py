@@ -78,34 +78,34 @@ def move_file(source_path,check_folder):
     print(f"Moved file from {source_path} to {check_folder}")
 
 
-# if __name__ == '__main__':
-#     conf = config.getInstance()
-#     check_folder = conf.check_folder()
-#     movielist = mov_Movie()
-#
-#     for _ in movielist:
-#         patha = os.path.join(_)
-#         move_file(patha,check_folder)
-
-
-semaphore = threading.Semaphore(4)
-def process_file(file_path):
+if __name__ == '__main__':
     conf = config.getInstance()
     check_folder = conf.check_folder()
-    semaphore.acquire()  # 获取信号量，限制线程数量
-    move_file(file_path,check_folder)
-    semaphore.release()  # 释放信号量
+    movielist = mov_Movie()
 
-threads = []
+    for _ in movielist:
+        patha = os.path.join(_)
+        move_file(patha,check_folder)
 
-movielist = mov_Movie()
-for file_path in movielist:
-    thread = threading.Thread(target=process_file, args=(file_path))
-    threads.append(thread)
-    thread.start()
 
-# 等待所有线程结束
-for thread in threads:
-    thread.join()
-
-print("All threads have finished moving files")
+# semaphore = threading.Semaphore(4)
+# def process_file(file_path):
+#     conf = config.getInstance()
+#     check_folder = conf.check_folder()
+#     semaphore.acquire()  # 获取信号量，限制线程数量
+#     move_file(file_path,check_folder)
+#     semaphore.release()  # 释放信号量
+#
+# threads = []
+#
+# movielist = mov_Movie()
+# for file_path in movielist:
+#     thread = threading.Thread(target=process_file, args=(file_path))
+#     threads.append(thread)
+#     thread.start()
+#
+# # 等待所有线程结束
+# for thread in threads:
+#     thread.join()
+#
+# print("All threads have finished moving files")
