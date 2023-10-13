@@ -70,7 +70,7 @@ async def move_file(source_path, destination_path):
     async with aiofiles.open(source_path, 'rb') as source_file:
         async with aiofiles.open(destination_path, 'wb') as destination_file:
             while True:
-                chunk = await source_file.read(1024)
+                chunk = await source_file.read(1048576)
                 if not chunk:
                     break
                 await destination_file.write(chunk)
