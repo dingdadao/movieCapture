@@ -18,6 +18,9 @@ def mov_Movie():
 
     source = Path(source_folder).resolve()
     for full_name in source.glob(r'**/*'):
+
+        if full_name.is_dir():
+            continue
         # 要移动的目的地是否有，有就删除
         failed_name = os.path.join(check_folder, os.path.basename(full_name))
         if not full_name.suffix.lower() in file_type:
