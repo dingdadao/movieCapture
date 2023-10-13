@@ -28,7 +28,7 @@ def mov_Movie():
                 try:
                     os.remove(full_name)
                     print('[-] 删除掉重复文件，优化空间 ')
-                    return
+                    continue
                 except Exception as e:
                     print("删除重复文件报错了{0}".format(e))
             is_sym = full_name.is_symlink()
