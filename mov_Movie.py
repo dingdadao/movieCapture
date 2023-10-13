@@ -1,12 +1,15 @@
 import os
 import re
 import shutil
+import threading
 from pathlib import Path
 
 import config
 
 
 def mov_Movie():
+
+    movie_list = []
     conf = config.getInstance()
     source_folder = conf.source_folder()
     check_folder = conf.check_folder()
@@ -45,11 +48,41 @@ def mov_Movie():
                     print("删除了小于80m的文件，节约空间")
                 except:
                     print("删除失败了{0}".format(full_name))
-            try:
-                shutil.move(full_name, check_folder)
-            except:
-                print("移动报错了小兄弟",full_name)
+
+            movie_list.append(full_name)
+    return check_folder,movie_list
+
+checkfo,movielist = mov_Movie()
 
 
-if __name__ == '__main__':
-    mov_Movie()
+semaphore = threading.Semaphore(4)
+
+def move_file(source_path, destination_path):
+    shutil.move(source_path, destination_path)
+    print(f"Moved file from {source_path} to {destination_path}")
+
+def process_file(file_path):
+    semaphore.acquire()  # 获取信号量，限制线程数量
+    move_file(file_path, checkfo)
+    semaphore.release()  # 释放信号量
+
+# 示例用法
+file_paths = [
+    "path/to/source/file1.txt",
+    "path/to/source/file2.txt",
+    "path/to/source/file3.txt",
+    # 添加更多文件路径
+]
+
+threads = []
+
+for file_path in movielist:
+    thread = threading.Thread(target=process_file, args=(file_path,))
+    threads.append(thread)
+    thread.start()
+
+# 等待所有线程结束
+for thread in threads:
+    thread.join()
+
+print("All threads have finished moving files")
