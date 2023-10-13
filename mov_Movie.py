@@ -37,6 +37,7 @@ def mov_Movie():
                 try:
                     os.remove(full_name)
                     print("删除了小于80m的文件，节约空间")
+                    continue
                 except:
                     print("删除失败了{0}".format(full_name))
             if os.path.exists(failed_name):
@@ -61,51 +62,34 @@ def mov_Movie():
 # print(movielist)
 # semaphore = threading.Semaphore(4)
 
-def move_file(source_path,check_folder):
-    source_path = os.path.join(source_path)
+import asyncio
+import aiofiles
+import shutil
 
-    failed_name = os.path.join(check_folder, os.path.basename(source_path))
-    if os.path.exists(failed_name):
-        print('[-]移动到未识别文件夹，已经存在')
-        try:
-            os.remove(source_path)
-            print('[-] 删除掉重复文件，优化空间 ')
-        except Exception as e:
-            print("删除重复文件报错了{0}".format(e))
-    else:
+async def move_file(source_path, destination_path):
+    async with aiofiles.open(source_path, 'rb') as source_file:
+        async with aiofiles.open(destination_path, 'wb') as destination_file:
+            while True:
+                chunk = await source_file.read(1024)
+                if not chunk:
+                    break
+                await destination_file.write(chunk)
 
-        shutil.move(source_path, check_folder)
-    print(f"Moved file from {source_path} to {check_folder}")
+    print(f"Moved file from {source_path} to {destination_path}")
 
-
-if __name__ == '__main__':
+async def main():
+    file_paths = mov_Movie()
     conf = config.getInstance()
     check_folder = conf.check_folder()
-    movielist = mov_Movie()
 
-    for _ in movielist:
-        patha = os.path.join(_)
-        move_file(patha,check_folder)
+    tasks = []
+    for file_path in file_paths:
+        destination_path = check_folder + file_path.split("/")[-1]
+        task = asyncio.create_task(move_file(file_path, destination_path))
+        tasks.append(task)
 
+    await asyncio.gather(*tasks)
 
-# semaphore = threading.Semaphore(4)
-# def process_file(file_path):
-#     conf = config.getInstance()
-#     check_folder = conf.check_folder()
-#     semaphore.acquire()  # 获取信号量，限制线程数量
-#     move_file(file_path,check_folder)
-#     semaphore.release()  # 释放信号量
-#
-# threads = []
-#
-# movielist = mov_Movie()
-# for file_path in movielist:
-#     thread = threading.Thread(target=process_file, args=(file_path))
-#     threads.append(thread)
-#     thread.start()
-#
-# # 等待所有线程结束
-# for thread in threads:
-#     thread.join()
-#
-# print("All threads have finished moving files")
+    print("All files have been moved")
+
+asyncio.run(main())
