@@ -83,7 +83,8 @@ if __name__ == '__main__':
     movielist = mov_Movie()
 
     for _ in movielist:
-        move_file(_,check_folder)
+        patha = os.path.join(_)
+        move_file(patha,check_folder)
 
 
 #
