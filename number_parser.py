@@ -45,7 +45,9 @@ def get_number(debug: bool, file_path: str) -> str:
             regex = config.getInstance().number_regexs()
             try:
                 if re.search(regex, filepath):
-                    return re.search(regex, filepath).group()
+                    nub = re.search(regex, filepath).group()
+                    print(nub,"------nub")
+                    return nub
             except Exception as e:
                 print(f'[-]custom regex exception: {e} [{regex}]')
 
