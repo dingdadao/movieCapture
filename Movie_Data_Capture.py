@@ -607,6 +607,8 @@ def main(args: tuple) -> Path:
         search_list = search.split(",")
         for i in search_list:
             json_data = get_data_from_json(i, oCC, None, None)
+            if not json_data:
+                continue
             debug_print(json_data)
             time.sleep(int(config.getInstance().sleep()))
         os._exit(0)

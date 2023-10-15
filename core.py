@@ -863,9 +863,9 @@ def core_main(movie_path, number_th, oCC, specified_source=None, specified_url=N
     # Return if blank dict returned (data not found)
 
 
-
+#  快速处理，先不移动刮削失败的
     if not json_data:
-        moveFailedFolder(movie_path)
+        # moveFailedFolder(movie_path)
         return
 
     if json_data["number"] != number:
