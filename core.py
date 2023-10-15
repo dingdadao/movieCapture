@@ -606,9 +606,13 @@ def paste_file_to_folder(filepath, path, multi_part, number, part, leak_word, c_
         # 任何情况下都不要覆盖，以免遭遇数据源或者引擎错误导致所有文件得到同一个number，逐一
         # 同名覆盖致使全部文件损失且不可追回的最坏情况
         if os.path.exists(targetpath):
-            print(filepath_obj,"filepath_obj=======")
-            print(targetpath,"targetpath======")
-            raise FileExistsError('File Exists on destination path, we will never overwriting.')
+            print("目的地可能存在了文件了所以直接删除掉就好了。")
+            try:
+                os.remove(filepath_obj)
+                return
+            except:
+                print("删除失败", filepath_obj)
+            # raise FileExistsError('File Exists on destination path, we will never overwriting.')
         link_mode = config.getInstance().link_mode()
         # 如果link_mode 1: 建立软链接 2: 硬链接优先、无法建立硬链接再尝试软链接。
         # 移除原先soft_link=2的功能代码，因默认记录日志，已经可追溯文件来源
