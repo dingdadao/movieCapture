@@ -1,11 +1,6 @@
-import unittest
-import urllib.request as res
 from bs4 import BeautifulSoup
 import re
-# from tool.requestHttp import get
-import urllib
 import requests
-import json
 import ssl
 import time
 

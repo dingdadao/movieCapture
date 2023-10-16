@@ -72,7 +72,7 @@ async def move_file(source_path, destination_path):
             while True:
                 chunk = await source_file.read(1048576)
                 if not chunk:
-                    break
+                    breakF
                 await destination_file.write(chunk)
 
     print(f"Moved file from {source_path} to {destination_path}")
