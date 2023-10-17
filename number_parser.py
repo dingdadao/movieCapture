@@ -46,7 +46,6 @@ def get_number(debug: bool, file_path: str) -> str:
             try:
                 if re.search(regex, filepath):
                     nub = re.search(regex, filepath).group()
-                    print(nub,"------nub")
                     if nub.split(","):
                         return nub.split(",")[0]
                     return nub
