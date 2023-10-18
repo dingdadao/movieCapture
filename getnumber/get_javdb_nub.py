@@ -4,11 +4,8 @@ import requests
 import ssl
 import time
 
-#
 # 解决请求https报错的问题
 ssl._create_default_https_context = ssl._create_unverified_context
-
-
 
 # https://javdb.com/search?q=test&f=all
 def get_Javdb(keyword:str):
@@ -55,7 +52,6 @@ def get_Javdb(keyword:str):
 
     return movielist
 
-
 def getDetailedInfo(soup):
     body = soup.find('body', {'data-lang': 'zh'})
     container = body.find('div', {'class': 'item columns is-desktop odd'})
@@ -71,37 +67,11 @@ def getDetailedInfo(soup):
     else:
         return ''
 
-# def testar(magnet:str):
-#     import json
-#     from urllib.request import urlopen
-#     jsonreq = json.dumps({'jsonrpc': '2.0',
-#                           'method': 'aria2.addUri',
-#                           "id": "QXJpYU5nXzE2OTQwNTM2MjlfMC4zMzI4NTkyMTM1NTQ4NDE4",
-#                           'params': ["token:nidaye00",[magnet],{}],
-#                           }).encode()
-#     print(jsonreq)
-#     c = urlopen('http://118.249.215.174:6800/jsonrpc', jsonreq)
-#     return c
-
-
-
-
-
-
-
-
-
 
 
 if __name__ == '__main__':
-    # get_Javdb("p")
-    #遍历数据
-    # get_Nub()
-    # get_github_Nub()
-
     file_patha = "/Users/dension/job/avcd/Movie_Data_Capture/getnumber/nub.txt"
     file_pathb = "/Users/dension/job/avcd/Movie_Data_Capture/getnumber/xtl.txt"
-
     with open(file_patha, 'r+') as files:
         files.seek(0)
         existing_strings = files.read().splitlines()
@@ -127,7 +97,3 @@ if __name__ == '__main__':
             with open(file_patha, 'w') as filet:
                 for line in existing_strings:
                     filet.write(line + '\n')
-
-
-
-
