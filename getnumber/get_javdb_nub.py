@@ -70,8 +70,8 @@ def getDetailedInfo(soup):
 
 
 if __name__ == '__main__':
-    file_patha = "/Users/dension/job/avcd/Movie_Data_Capture/getnumber/nub.txt"
-    file_pathb = "/Users/dension/job/avcd/Movie_Data_Capture/getnumber/xtl.txt"
+    file_patha = "getnumber/nub.txt"
+    file_pathb = "getnumber/xtl.txt"
     with open(file_patha, 'r+') as files:
         files.seek(0)
         existing_strings = files.read().splitlines()
