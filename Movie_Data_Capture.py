@@ -687,7 +687,7 @@ def main(args: tuple) -> Path:
             if os.path.isdir(full_name) and full_name.split("/")[-1] not in rgx:
                 print(full_name)
                 try:
-                    os.removedirs(full_name)
+                    shutil.rmtree(full_name)
                 except:
                     print("删除失败", full_name)
 
