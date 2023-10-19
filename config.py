@@ -174,6 +174,9 @@ class Config:
     def check_folder(self) -> str:
         return self.conf.get("common", "check_folder").replace("\\\\", "/").replace("\\", "/")
 
+    def isDelectDir(self) -> bool:
+        return self.conf.get("common", "is_delect_dir")
+
     def failed_folder(self) -> str:
         return self.conf.get("common", "failed_output_folder").replace("\\\\", "/").replace("\\", "/")
 

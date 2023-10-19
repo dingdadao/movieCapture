@@ -515,6 +515,7 @@ def create_data_and_move_with_custom_number(file_path: str, custom_number, oCC, 
 
 
 def main(args: tuple) -> Path:
+    delect_path = []
     (single_file_path, custom_number, logdir, regexstr, zero_op, no_net_op, search, specified_source,
      specified_url) = args
     conf = config.getInstance()
@@ -657,6 +658,7 @@ def main(args: tuple) -> Path:
 
             else:
                 create_data_and_move(movie_path, zero_op, no_net_op, oCC)
+                delect_path.append(movie_path)
                 if count >= stop_count:
                     print("[!]Stop counter triggered!")
                     break
@@ -673,8 +675,22 @@ def main(args: tuple) -> Path:
     total_time = str(timedelta(seconds=end_time - start_time))
     print("[+]Running time", total_time[:len(total_time) if total_time.rfind('.') < 0 else -3],
           " End at", time.strftime("%Y-%m-%d %H:%M:%S"))
+    if not conf.isDelectDir():
+        print("[+] 电影搞完啦")
+    else:
+        print("[+] 电影搞完啦，我们开始清理空的文件和文件夹")
+        delect_cont = len(delect_path)
+        print("一共发现" + str(delect_cont) + "条需要删除的数据")
+        for full_name in delect_path:
+            full_name = full_name.rsplit('/', 1)[0]
+            rgx = ["synology","download","medie","medies","japan","JAV_output","failed","check"]
+            if os.path.isdir(full_name) and full_name.split("/")[-1] not in rgx:
+                print(full_name)
+                try:
+                    os.removedirs(full_name)
+                except:
+                    print("删除失败", full_name)
 
-    print("[+]All finished!!!")
 
     return close_logfile(logdir)
 
