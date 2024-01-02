@@ -56,12 +56,6 @@ def mov_Movie():
 
 
 
-
-
-
-# print(movielist)
-# semaphore = threading.Semaphore(4)
-
 import asyncio
 import aiofiles
 import shutil
@@ -72,7 +66,7 @@ async def move_file(source_path, destination_path):
             while True:
                 chunk = await source_file.read(1048576)
                 if not chunk:
-                    breakF
+                    break
                 await destination_file.write(chunk)
 
     print(f"Moved file from {source_path} to {destination_path}")

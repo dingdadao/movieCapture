@@ -530,7 +530,7 @@ def main(args: tuple) -> Path:
         signal.signal(signal.SIGBREAK, sigdebug_handler)
     else:
         signal.signal(signal.SIGWINCH, sigdebug_handler)
-    dupe_stdout_to_logfile(logdir)
+    # dupe_stdout_to_logfile(logdir)
 
     platform_total = str(
         ' - ' + platform.platform() + ' \n[*] - ' + platform.machine() + ' - Python-' + platform.python_version())

@@ -70,8 +70,8 @@ def getDetailedInfo(soup):
 
 
 if __name__ == '__main__':
-    file_patha = "getnumber/nub.txt"
-    file_pathb = "getnumber/xtl.txt"
+    file_patha = "/Users/dension/job/avcd/Movie_Data_Capture/getnumber/nub.txt"
+    file_pathb = "/Users/dension/job/avcd/Movie_Data_Capture/getnumber/xtl.txt"
     with open(file_patha, 'r+') as files:
         files.seek(0)
         existing_strings = files.read().splitlines()
@@ -92,7 +92,8 @@ if __name__ == '__main__':
                 with open(file_patha, 'w') as filet:
                     for line in existing_strings:
                         filet.write(line + '\n')
-        except:
+        except Exception as e:
+            print(e)
             print("异常了")
             with open(file_patha, 'w') as filet:
                 for line in existing_strings:
