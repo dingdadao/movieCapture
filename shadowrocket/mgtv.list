@@ -1,18 +1,10 @@
 # NAME: MGTV
 # 代理名单
-DOMAIN,vip.log.mgtv.com
-DOMAIN,mpns-im.api.mgtv.com
-DOMAIN,pmp.imgo.tv
-DOMAIN,vipcdn.mgtv.com
-DOMAIN,vipact3.api.mgtv.com
-DOMAIN,apm.log.mgtv.com
-DOMAIN,xiazai.imgo.tv
-DOMAIN,bbs.imgo.tv
-DOMAIN,oa.imgo.tv
-DOMAIN,multifactor.imgo.tv
-DOMAIN,oaim.imgo.tv
-DOMAIN-SUFFIX,hitv.com
-DOMAIN-SUFFIX,imgo.tv
 DOMAIN-SUFFIX,mgtv.com
+DOMAIN,imgo.tv
+DOMAIN-SUFFIX,hitv.com
 DOMAIN-SUFFIX,kltb.com.cn
+DOMAIN-SUFFIX,hitv.com
+DOMAIN-SUFFIX,hunantv.com
+DOMAIN-SUFFIX,tazai.com
 USER-AGENT,Disney+*
