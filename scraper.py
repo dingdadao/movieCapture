@@ -60,6 +60,8 @@ def get_data_from_json(
         javdb_site = cj
         cookie_json = javdb_site + '.json'
         cookies_dict, cookies_filepath = load_cookies(cookie_json)
+        print(cookies_dict)
+        print(cookies_filepath)
         if isinstance(cookies_dict, dict) and isinstance(cookies_filepath, str):
             cdays = file_modification_days(cookies_filepath)
             if cdays < 7:
