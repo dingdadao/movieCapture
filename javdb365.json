@@ -1,67 +1,11 @@
-[
-    {
-        "domain": "javdb365.com",
-        "expirationDate": 1746788141.718306,
-        "hostOnly": true,
-        "httpOnly": false,
-        "name": "list_mode",
-        "path": "/",
-        "sameSite": "lax",
-        "secure": false,
-        "session": false,
-        "storeId": "0",
-        "value": "h"
-    },
-    {
-        "domain": "javdb365.com",
-        "expirationDate": 1746788141.718402,
-        "hostOnly": true,
-        "httpOnly": false,
-        "name": "theme",
-        "path": "/",
-        "sameSite": "lax",
-        "secure": false,
-        "session": false,
-        "storeId": "0",
-        "value": "auto"
-    },
-    {
-        "domain": "javdb365.com",
-        "expirationDate": 1747729640.20745,
-        "hostOnly": true,
-        "httpOnly": false,
-        "name": "locale",
-        "path": "/",
-        "sameSite": "lax",
-        "secure": false,
-        "session": false,
-        "storeId": "0",
-        "value": "zh"
-    },
-    {
-        "domain": "javdb365.com",
-        "expirationDate": 1743764143.433521,
-        "hostOnly": true,
-        "httpOnly": false,
-        "name": "over18",
-        "path": "/",
-        "sameSite": "lax",
-        "secure": false,
-        "session": false,
-        "storeId": "0",
-        "value": "1"
-    },
-    {
-        "domain": "javdb365.com",
-        "expirationDate": 1714465640.207553,
-        "hostOnly": true,
-        "httpOnly": true,
-        "name": "_jdb_session",
-        "path": "/",
-        "sameSite": "no_restriction",
-        "secure": true,
-        "session": false,
-        "storeId": "0",
-        "value": "bOYLtWPPiYhEn4yjxSFHuU4InZRZsEja1QufYTLwxCfExGiChd%2BrJKo0iyNC1Q0scjU6azxG1A2IiMIW6T2ubOu5TVGlELUSLJvOAXQdVgvEwiDA2EPvNZCXqAo7k2R0AyZs0gyOHZtT9wx513Sr6vdr9igZ8MhXUSxz84zT%2FzQtbWXl2%2FLVkvQWV8%2B7Dra86VMTun12W0%2FYCw0oqGs5UrmI97eOtgDmezpcapXTcsVw4T2V638CdYRzdNM5ydR8EdVTwfo5spnOOoU7mp9HnZe1FAfsiwr5nLDkG7tq6kycCxip39v5xoou--MHFDaG6bEASfzhOE--O4Kiuj3LRp2PhKFxoAp1oA%3D%3D"
-    }
-]
+{
+     "_ym_d": "1712228143",
+    "_ym_isad": "2",
+    "_ym_uid": "1712228143622054798",
+    "cf_clearance": "zRlIERYvQ349pHPHo2PmSNEAusHuDlaQqPk7CuCTBAs-1713170511-1.0.1.1-p_A_3dxM7bmI3X4DfQn9cJMw.e1xNFsjiAJ8CSiIqH3oPBlF1kS0j93LVyj.3zf3930leeuYbeJ1OqU1EbPjlQ",
+    "_jdb_session": "k5TlDbQR4xjU6y2eJfUcCXsbKEtBLxrTxBWIkNS0%2BLQxVT74F8lEnvQHiax6m5u%2BtOhfxbSH6hM1%2BnBevAL1p0xYTu0FREQpS8HwL572wmb0lhtNq5M1kMsbHnK5sbryVs%2BYpaMg7m4TyUJcfOd2COfqITq7r2pFxKOjQHyMHSKgkjawHZdWfgKBRwOEyXLjyuNyqA4pI4S0Kv1iC693GCvOKaLLeG%2BmIqjjxM0Txdx6GbDpdTLWOkcIf2gbodE0pCrtasOBcdzHC9jvXC6%2FEch4%2BK31t5VDJ1tCeqJWZeGckhxMspeoyfEB--klTzmEeCgEuFIVRY--eawQ%2BfF2TSqWWlVX5KruoQ%3D%3D",
+    "list_mode": "h",
+    "locale": "zh",
+    "over18": "1",
+    "theme": "auto"
+}

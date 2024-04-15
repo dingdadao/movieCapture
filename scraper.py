@@ -77,9 +77,6 @@ def get_data_from_json(
     ca_cert = None
     if conf.cacert_file():
         ca_cert = conf.cacert_file()
-    print("====---------=======--------")
-    print(javdb_site)
-    print(javdb_cookies)
 
     json_data = search(file_number, sources, proxies=proxies, verify=ca_cert,
                         dbsite=javdb_site, dbcookies=javdb_cookies,
