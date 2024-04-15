@@ -53,12 +53,13 @@ def moveFailedFolder(filepath):
                 print("删除重复文件报错了{0}".format(e))
         # 重试三次
         else:
-            for i in range(1,4):
-                try:
-                    shutil.move(filepath, failed_name)
-                except Exception as e:
-                    print(e)
-                    print('[-]移动到未识别文件夹失败!',failed_name)
+            if os.path.exists(filepath):
+                for i in range(1,4):
+                    try:
+                        shutil.move(filepath, failed_name)
+                    except Exception as e:
+                        print(e)
+                        print('[-]移动到未识别文件夹失败!',failed_name)
                 # finally:
                 #     shutil.move(filepath, failed_name)
 
