@@ -388,6 +388,17 @@ def load_cookies(cookie_json_filename: str) -> typing.Tuple[typing.Optional[dict
         Path.home() / f".local/share/mdc/{filename}"
     )
     cookies_filename = None
+    json_a = {
+        "_ym_d": "1712228143",
+        "_ym_isad": "2",
+        "_ym_uid": "1712228143622054798",
+        "cf_clearance": "zRlIERYvQ349pHPHo2PmSNEAusHuDlaQqPk7CuCTBAs-1713170511-1.0.1.1-p_A_3dxM7bmI3X4DfQn9cJMw.e1xNFsjiAJ8CSiIqH3oPBlF1kS0j93LVyj.3zf3930leeuYbeJ1OqU1EbPjlQ",
+        "_jdb_session": "k5TlDbQR4xjU6y2eJfUcCXsbKEtBLxrTxBWIkNS0%2BLQxVT74F8lEnvQHiax6m5u%2BtOhfxbSH6hM1%2BnBevAL1p0xYTu0FREQpS8HwL572wmb0lhtNq5M1kMsbHnK5sbryVs%2BYpaMg7m4TyUJcfOd2COfqITq7r2pFxKOjQHyMHSKgkjawHZdWfgKBRwOEyXLjyuNyqA4pI4S0Kv1iC693GCvOKaLLeG%2BmIqjjxM0Txdx6GbDpdTLWOkcIf2gbodE0pCrtasOBcdzHC9jvXC6%2FEch4%2BK31t5VDJ1tCeqJWZeGckhxMspeoyfEB--klTzmEeCgEuFIVRY--eawQ%2BfF2TSqWWlVX5KruoQ%3D%3D",
+        "list_mode": "h",
+        "locale": "zh",
+        "over18": "1",
+        "theme": "auto"
+    }
     try:
         for p in path_search_order:
             if p.is_file():
@@ -395,7 +406,8 @@ def load_cookies(cookie_json_filename: str) -> typing.Tuple[typing.Optional[dict
                 break
         if not cookies_filename:
             return None, None
-        return json.loads(Path(cookies_filename).read_text(encoding='utf-8')), cookies_filename
+        # return json.loads(Path(cookies_filename).read_text(encoding='utf-8')), cookies_filename
+        return json_a,"javdb365.json"
     except:
         return None, None
 
