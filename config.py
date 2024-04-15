@@ -419,7 +419,7 @@ class Config:
             fallback="actor,director,label,outline,series,studio,tag,title")
 
     def javdb_sites(self) -> str:
-        return self.conf.get("javdb", "sites", fallback="38,39")
+        return self.conf.get("javdb", "sites", fallback="")
 
     def face_locations_model(self) -> str:
         return self.conf.get("face", "locations_model", fallback="hog")
