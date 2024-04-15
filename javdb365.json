@@ -1,0 +1,67 @@
+[
+    {
+        "domain": "javdb365.com",
+        "expirationDate": 1746788141.718306,
+        "hostOnly": true,
+        "httpOnly": false,
+        "name": "list_mode",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": false,
+        "session": false,
+        "storeId": "0",
+        "value": "h"
+    },
+    {
+        "domain": "javdb365.com",
+        "expirationDate": 1746788141.718402,
+        "hostOnly": true,
+        "httpOnly": false,
+        "name": "theme",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": false,
+        "session": false,
+        "storeId": "0",
+        "value": "auto"
+    },
+    {
+        "domain": "javdb365.com",
+        "expirationDate": 1747729640.20745,
+        "hostOnly": true,
+        "httpOnly": false,
+        "name": "locale",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": false,
+        "session": false,
+        "storeId": "0",
+        "value": "zh"
+    },
+    {
+        "domain": "javdb365.com",
+        "expirationDate": 1743764143.433521,
+        "hostOnly": true,
+        "httpOnly": false,
+        "name": "over18",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": false,
+        "session": false,
+        "storeId": "0",
+        "value": "1"
+    },
+    {
+        "domain": "javdb365.com",
+        "expirationDate": 1714465640.207553,
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": "_jdb_session",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": "0",
+        "value": "bOYLtWPPiYhEn4yjxSFHuU4InZRZsEja1QufYTLwxCfExGiChd%2BrJKo0iyNC1Q0scjU6azxG1A2IiMIW6T2ubOu5TVGlELUSLJvOAXQdVgvEwiDA2EPvNZCXqAo7k2R0AyZs0gyOHZtT9wx513Sr6vdr9igZ8MhXUSxz84zT%2FzQtbWXl2%2FLVkvQWV8%2B7Dra86VMTun12W0%2FYCw0oqGs5UrmI97eOtgDmezpcapXTcsVw4T2V638CdYRzdNM5ydR8EdVTwfo5spnOOoU7mp9HnZe1FAfsiwr5nLDkG7tq6kycCxip39v5xoou--MHFDaG6bEASfzhOE--O4Kiuj3LRp2PhKFxoAp1oA%3D%3D"
+    }
+]
