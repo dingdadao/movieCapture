@@ -15,6 +15,7 @@ from ADC_function import (translate,
                           delete_all_elements_in_str,
                           delete_all_elements_in_list
                           )
+from getnumber.searchJavdbDowload import javdbcookie
 from scrapinglib.api import search
 
 
@@ -60,10 +61,10 @@ def get_data_from_json(
         javdb_site = cj
         cookie_json = javdb_site + '.json'
         cookies_dict, cookies_filepath = load_cookies(cookie_json)
-        javdb_cookies = cookies_dict
+        javdb_cookies = javdbcookie()
         has_valid_cookie = True
-        print(cookies_dict)
-        print(cookies_filepath)
+        # print(cookies_dict)
+        # print(cookies_filepath)
         # if isinstance(cookies_dict, dict) and isinstance(cookies_filepath, str):
             # cdays = file_modification_days(cookies_filepath)
             # javdb_cookies = cookies_dict
