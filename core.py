@@ -9,7 +9,6 @@ from datetime import datetime
 # from videoprops import get_video_properties
 
 from ADC_function import *
-from getnumber.searchJavdbDowload import javdbcookie
 from scraper import get_data_from_json
 from number_parser import is_uncensored
 from ImageProcessing import cutImage
@@ -142,7 +141,7 @@ def download_file_with_filename(url, filename, path, filepath, json_headers=None
                 except:
                     print(f"[-]Fatal error! Can not make folder '{path}'")
                     os._exit(0)
-            r = get_html(url=url, return_type='content', json_headers=javdbcookie())
+            r = get_html(url=url, return_type='content', json_headers=json_headers)
             if r == '':
                 print('[-]Movie Download Data not found!')
                 return

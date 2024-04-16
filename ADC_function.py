@@ -20,6 +20,7 @@ from cloudscraper import create_scraper
 
 # project wide
 import config
+from getnumber.searchJavdbDowload import javdbcookie
 
 
 def get_xpath_single(html_code: str, xpath):
@@ -39,9 +40,10 @@ def get_html(url, cookies: dict = None, ua: str = None, return_type: str = None,
     config_proxy = config.getInstance().proxy()
     errors = ""
 
-    headers = {"User-Agent": ua or G_USER_AGENT}  # noqa
-    if json_headers is not None:
-        headers.update(json_headers)
+    # headers = {"User-Agent": ua or G_USER_AGENT}  # noqa
+    headers = javdbcookie()
+    # if json_headers is not None:
+    #     headers.update(json_headers)
 
     for i in range(config_proxy.retry):
         try:
