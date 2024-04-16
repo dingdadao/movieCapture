@@ -64,6 +64,9 @@ def cutImage(imagecut, path, thumb_path, poster_path, skip_facerec=False):
     conf = config.getInstance()
     fullpath_fanart = os.path.join(path, thumb_path)
     fullpath_poster = os.path.join(path, poster_path)
+
+    print(fullpath_fanart,"=======================")
+    print(fullpath_poster, "=======================")
     aspect_ratio = conf.face_aspect_ratio()
     if conf.face_aways_imagecut():
         imagecut = 1
