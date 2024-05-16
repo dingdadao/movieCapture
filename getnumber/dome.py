@@ -16,7 +16,7 @@ def get_video_encoding_info(file_path):
         else:
             return False
     except subprocess.CalledProcessError as e:
-        return False
+        print(e)
 
 
 def find_and_move_video_files(config_file):
@@ -29,7 +29,7 @@ def find_and_move_video_files(config_file):
         min_size_bytes = config.getint('target', 'min_size_bytes')
         file_list = []
         total_files = sum(len(files) for _, _, files in os.walk(source_folder))
-        with tqdm(total=total_files, desc="筛选", ascii=True, leave=False) as pbar:
+        with tqdm(total=total_files, desc="Sizer", unit="file") as pbar:
             for root, dirs, files in os.walk(source_folder):
                 for file in files:
                     if file.endswith(
@@ -41,7 +41,7 @@ def find_and_move_video_files(config_file):
                                 file_list.append([file_path, target_path])
                     pbar.update(1)
 
-        with tqdm(total=len(file_list), desc="移动", ascii=True, leave=False) as pbar:
+        with tqdm(total=len(file_list), desc="moveFile", unit="file") as pbar:
             for movie in file_list:
                 shutil.move(movie[0], movie[1])
                 pbar.update(1)

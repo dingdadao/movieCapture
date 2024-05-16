@@ -10,7 +10,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 def javdbcookie():
     headers = {
-        'authority': 'javdb365.com',
+        'authority': 'javdb366.com',
         'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
         'Accept-Encoding': 'gzip, deflate, br',
         'Accept-Language': 'zh-CN,zh-TW;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6',
@@ -29,14 +29,20 @@ def javdbcookie():
     }
     return headers
 # https://javdb.com/search?q=test&f=all
+
+
+"""
+
+
+"""
 def get_Javdb(keyword:str, sb, ifor, max:int, urls):
     headers = {
-        'authority':'javdb.com',
+        'authority':'javdb366.com',
         'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
         'Accept-Encoding' : 'gzip, deflate, br',
         'Accept-Language':'zh-CN,zh-TW;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6',
-        'Cookie':'_ym_uid=1693998810306887787; list_mode=h; theme=auto; locale=zh; _ym_d=1712217273; _ym_isad=2; over18=1; _rucaptcha_session_id=9c0e5ca591240c1e36a61579d1b5f971; redirect_to=%2Fv%2FAzB61m; cf_clearance=vrxOkDvvyqRLlyL1Pdsrij7.4RvP9CjT9Uzf9aNoXxc-1712223713-1.0.1.1-Y22Bx3f_I7dRXGU3XhX3fhxudvkrKry1CGsEkahAELkjUDtB0aiwioDeT.7BdfxsJDK76sh3tXRzKMqnWHalLw; _jdb_session=CDADGPEZTZiPgY6lVvIJvbvZ60ITEzmC8FPfoVIgOOwVLIQtc%2BFHPPDTvGKZkbBY8r9WixHC9R9B412PMIDvFkDPVmzwJ%2FgZ0d24b6xfCeo6Fm23LU5mdOWuOLcxYWD1RLIdHs4A57oPfI5Dw65r9IIEf%2F1Cn1BFdI9BNJ5RgO9n5eSJeUQm501dfXZRXeMe08hXvaSfe5PzkOOXm5e5PZn59mXV5y%2B8YjYhvaxJZqj5L1tO28dipVrTX%2FIOVRdSPSZ%2FUp5s7EG%2Fv%2FX346qz53e14Up6FYMAX3aNLZVV6Fo%2FO8n%2BJA2XwwLIwy601YrTz7JyM3ygtAnYMXxX3oMWqjF0YkcwnLx84PpAVPlYYnzB2xAGAAzq9Q9A4kPq23zTBV%2FK270VymZ2CGidbeInOBD4--XFHJtyFA1vkebwHi--Fx1hXxiPryyMxoidLZL1sQ%3D%3D',
-        'Referer':'https://javdb.com/',
+        'Cookie':'i=z1PQa5TmbOAKoCV1YpHcsvGEmy+FLow0N4PSjS+FGcQZcLJMR7WJbAJaPkxCEHSVVlYTJHkduEBmWr9hQDO6c3lwcx4=; yandexuid=5478701451693998810; yabs-sid=443727641698054835; yuidss=5478701451693998810; ymex=2017031292.yrts.1701671292#2009358810.yrtsi.1693998810; yashr=2012744691712217271; receive-cookie-deprecation=1; bh=EkEiQ2hyb21pdW0iO3Y9IjEyNCIsICJHb29nbGUgQ2hyb21lIjt2PSIxMjQiLCAiTm90LUEuQnJhbmQiO3Y9Ijk5IhoFImFybSIiECIxMjQuMC42MzY3LjExOSIqAj8wMgkiTmV4dXMgNSI6ByJtYWNPUyJCCCIxNC40LjEiSgQiNjQiUlwiQ2hyb21pdW0iO3Y9IjEyNC4wLjYzNjcuMTE5IiwiR29vZ2xlIENocm9tZSI7dj0iMTI0LjAuNjM2Ny4xMTkiLCJOb3QtQS5CcmFuZCI7dj0iOTkuMC4wLjAiIg==; bh=Ej8iQ2hyb21pdW0iO3Y9IjEyNCIsIkdvb2dsZSBDaHJvbWUiO3Y9IjEyNCIsIk5vdC1BLkJyYW5kIjt2PSI5OSIaBSJhcm0iIhAiMTI0LjAuNjM2Ny4xMTkiKgI/MDIJIk5leHVzIDUiOgcibWFjT1MiQggiMTQuNC4xIkoEIjY0IlJcIkNocm9taXVtIjt2PSIxMjQuMC42MzY3LjExOSIsIkdvb2dsZSBDaHJvbWUiO3Y9IjEyNC4wLjYzNjcuMTE5IiwiTm90LUEuQnJhbmQiO3Y9Ijk5LjAuMC4wIiI=',
+        'Referer':'https://javdb366.com/',
         'Sec-Ch-Ua':'"Google Chrome";v="123", "Not:A-Brand";v="8", "Chromium";v="123"',
         'Sec-Ch-Ua-Mobile':'?1',
         'Sec-Ch-Ua-Platform':'macOS',
@@ -49,16 +55,18 @@ def get_Javdb(keyword:str, sb, ifor, max:int, urls):
 
     }
     # keyword = 'STARS-931'
-    for i in range(1, max+1):
+
+    for i in range(0, max):
         if urls:
-            page_url = urls + "?f=download&page={0}".format(i)
+            page_url = urls + "?f=download&page={0}".format(i+1)
         else:
             page_url = 'https://javdb.com/search?f={0}&page={1}&q={2}&sb={3}'.format(ifor,i,keyword,sb)
         # page_url = "https://javdb.com/rankings/movies?p=monthly&t=western"
-        print(page_url)
+        # print(page_url)
 
         response = requests.get(page_url, headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
+        print(soup)
         movielist = []
         try:
             div = soup.find('div', {'class': 'movie-list h cols-4 vcols-8'})
@@ -66,7 +74,7 @@ def get_Javdb(keyword:str, sb, ifor, max:int, urls):
 
             for a in alist:
 
-                url = 'https://javdb.com' + a['href']
+                url = 'https://javdb366.com' + a['href']
                 magnet = getDetailedInfo(url, headers)
                 if magnet:
                     movielist.append(magnet)
@@ -119,8 +127,8 @@ def writeFile(Javdblist):
 
 if __name__ == '__main__':
     file_pathb = "/Users/dension/job/avcd/Movie_Data_Capture/getnumber/xtl.txt"
-    # sb = 1 按照时间
+    # sb = 1 按照时间  ?f=download
     url = None
 
-    Javdblist = get_Javdb(keyword='无码',sb=1,ifor='download',max=20, urls=url)
+    Javdblist = get_Javdb(keyword='母乳',sb=1,ifor='download',max=3, urls=url)
 
