@@ -66,7 +66,7 @@ def get_Javdb(keyword:str, sb, ifor, max:int, urls):
 
         response = requests.get(page_url, headers=headers)
         soup = BeautifulSoup(response.text, 'html.parser')
-        print(soup)
+
         movielist = []
         try:
             div = soup.find('div', {'class': 'movie-list h cols-4 vcols-8'})
@@ -130,5 +130,5 @@ if __name__ == '__main__':
     # sb = 1 按照时间  ?f=download
     url = None
 
-    Javdblist = get_Javdb(keyword='母乳',sb=1,ifor='download',max=3, urls=url)
+    Javdblist = get_Javdb(keyword='夫妻ntr',sb=1,ifor='cnsub',max=3, urls=url)
 
