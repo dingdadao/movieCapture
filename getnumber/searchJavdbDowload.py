@@ -60,7 +60,7 @@ def get_Javdb(keyword:str, sb, ifor, max:int, urls):
         if urls:
             page_url = urls + "?f=download&page={0}".format(i+1)
         else:
-            page_url = 'https://javdb.com/search?f={0}&page={1}&q={2}&sb={3}'.format(ifor,i,keyword,sb)
+            page_url = 'https://javdb366.com/search?f={0}&page={1}&q={2}&sb={3}'.format(ifor,i,keyword,sb)
         # page_url = "https://javdb.com/rankings/movies?p=monthly&t=western"
         # print(page_url)
 
@@ -69,6 +69,7 @@ def get_Javdb(keyword:str, sb, ifor, max:int, urls):
 
         movielist = []
         try:
+
             div = soup.find('div', {'class': 'movie-list h cols-4 vcols-8'})
             alist = div.find_all('a',{'class':'box'})
 
@@ -128,7 +129,17 @@ def writeFile(Javdblist):
 if __name__ == '__main__':
     file_pathb = "/Users/dension/job/avcd/Movie_Data_Capture/getnumber/xtl.txt"
     # sb = 1 按照时间  ?f=download
-    url = None
+    # https://javdb366.com/series/qJ4D
+    # https://javdb366.com/video_codes/WAWA
+    # url = "https://javdb366.com/video_codes/LUXU"
+    # "https://javdb366.com/directors/pWB"3
+    # "https://javdb366.com/directors/YnK"2
+    # "https://javdb366.com/directors/4Dd6"1
+    # "https://javdb366.com/video_codes/NSSTH"1
 
-    Javdblist = get_Javdb(keyword='夫妻ntr',sb=1,ifor='cnsub',max=3, urls=url)
+    # url ="https://javdb366.com/search?f=all&q=nsps"
+    url=None
+
+
+    Javdblist = get_Javdb(keyword='nsps',sb=1, ifor='download', max=21, urls=url)
 
