@@ -137,9 +137,9 @@ if __name__ == '__main__':
     # "https://javdb366.com/directors/4Dd6"1
     # "https://javdb366.com/video_codes/NSSTH"1
 
-    # url ="https://javdb366.com/search?f=all&q=nsps"
-    url=None
+    url ="https://javdb366.com/series/4d0J"
+    # url=None
 
 
-    Javdblist = get_Javdb(keyword='nsps',sb=1, ifor='download', max=21, urls=url)
+    Javdblist = get_Javdb(keyword='sdnt',sb=1, ifor='download', max=2, urls=url)
 
