@@ -1,17 +1,16 @@
 # NAME: MGTV
-# 代理名单
-DOMAIN-SUFFIX,mgtv.com
-DOMAIN-SUFFIX,hitv.com
-DOMAIN-SUFFIX,kltb.com.cn
-DOMAIN-SUFFIX,hitv.com
-DOMAIN-SUFFIX,hunantv.com
-DOMAIN-SUFFIX,tazai.com
-DOMAIN-SUFFIX,imgo.tv
-DOMAIN-SUFFIX,kltb.com.cn
-DOMAIN-SUFFIX,kltb.com
-DOMAIN-SUFFIX,shuziwenbo.cn
-DOMAIN-SUFFIX,shdaex.com
-DOMAIN-SUFFIX,msg-kf.imgo.tv
-DOMAIN-SUFFIX,api-kf.imgo.tv
-DOMAIN-SUFFIX,api.songzhaopian.com
+# 代理名单（优化版）
+
+# 芒果TV相关域名关键字
+DOMAIN-KEYWORD,mgtv
+DOMAIN-KEYWORD,hitv
+DOMAIN-KEYWORD,kltb
+DOMAIN-KEYWORD,hunantv
+DOMAIN-KEYWORD,tazai
+DOMAIN-KEYWORD,imgo
+DOMAIN-KEYWORD,shuziwenbo
+DOMAIN-KEYWORD,shdaex
+DOMAIN-KEYWORD,songzhaopian
+
+# Disney+ 用户代理匹配
 USER-AGENT,Disney+*
