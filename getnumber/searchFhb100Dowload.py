@@ -80,8 +80,8 @@ if __name__ == '__main__':
     # url ="https://www.fhb100.com/zh-cn/videos/hot/"
     # url="https://www.fhb100.com/zh-cn/rsearch/go/?query=%E6%AF%8D%E4%B9%B3"
     url = None
-    query = 'ADN'
+    query = 'juq'
 
 
-    Javdblist = get_Javdb(q=query, max=26, urls=url)
+    Javdblist = get_Javdb(q=query, max=2, urls=url)
 
